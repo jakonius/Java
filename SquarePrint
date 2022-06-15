@@ -1,0 +1,53 @@
+
+package com.mycompany.helloworld;
+import java.util.Scanner;
+/**
+ *
+ * @author Jackson Barrow
+ */
+public class HelloWorld {
+
+    public static void main(String[] args) { // Create a Scanner object
+      
+Scanner Hin = new Scanner(System.in);  // Create a Scanner object
+    System.out.println("Enter Shape Height");
+    int height = Hin.nextInt();  // Get shape height from user. 
+        //int height = 10;
+        int hcount = 0;
+        int wcount = 0;
+        int wcap = 2 * height;
+    Scanner Lin = new Scanner(System.in);          
+        System.out.println("Enter Line Number for Text.");
+    int line = Lin.nextInt() - 1;  // Get line number to input text    
+      if(line > height || line < 0){
+        System.out.println("Warning - Your line value will not be printed in your shape.");  
+      }  
+//int line = 4;
+        Scanner Tin = new Scanner(System.in);          
+        System.out.println("Enter text to label the shape, you may press enter to leave the default value.");
+        String txt = Tin.nextLine();
+        //var txt = "Test Print";
+        int txtlen = txt.length();
+        int prntw = height - txtlen / 2;
+        //System.out.println(prntw);
+        do {
+                    System.out.print("*");
+                    wcount++;
+                        if(wcount == wcap){
+                        //System.out.println(hcount);    
+                        System.out.println();
+                        wcount = 0;
+                        hcount++;
+                        }
+                        if(hcount == line && wcount == prntw && txt == ""){
+                            System.out.print("LU");
+                            wcount = wcount + 2;
+                        }
+                        if(hcount == line && wcount == prntw && txt != ""){
+                        System.out.print(txt);
+                            wcount = wcount + txtlen;
+                        }
+                    } while (hcount < height);
+            
+    }
+}
